@@ -12,3 +12,19 @@
   margin-top: 35px;
   margin-left: 20px;
 }
+
+.camera-btn {
+  width: 80px;
+}
+.send-document-btn,
+.camera-btn {
+  background: #6b076b;
+  border: solid 1px gray;
+  padding: 5px;
+  border-radius: 5px;
+}
+.camera-btn:hover,
+.send-document-btn:hover {
+  background: #800080;
+  cursor: pointer;
+}
