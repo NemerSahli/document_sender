@@ -1,10 +1,10 @@
 var nodemailer = require('nodemailer');
 
-function sendMail(recipientAddress, subject, body) {
+function sendMail(recipientAddress, subject, body, doc) {
   var smtpConfig = {
-   host: 'smtp.gmail.com',
-   port: 465,
-   secure: true,
+    host: 'smtp.gmail.com',
+    port: 465,
+    secure: true,
     auth: {
       user: 'mieter.engel24@gmail.com',
       pass: 'Engel2019'
@@ -18,7 +18,13 @@ function sendMail(recipientAddress, subject, body) {
     to: recipientAddress,
     subject: subject,
     text: 'Hello World',
-    html: body
+    html: body,
+    attachments: [
+      {
+        filename: doc,
+        contentType: 'application/pdf'
+      }
+    ]
   };
   transporter.sendMail(mailOptions, function(err, info) {
     if (err) console.log('mail was not delivered');
