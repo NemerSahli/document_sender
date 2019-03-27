@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import CameraEngel from '../pages/CameraEngel';
 import ImagePreview from '../layout/ImagePreview';
-
+import axios from 'axios';
 export default class DocumentUploader extends Component {
   state = {
     imgDataUri: null,
@@ -21,9 +21,34 @@ export default class DocumentUploader extends Component {
       displayCamera: true
     });
   };
-  sendDocument = () => {
-    alert('document will be delivered by mail thanks for your info');
-  };
+
+  sendDocument = async () => {
+    if(this.state.imgDataUri){
+
+      let newDocument = {
+        userName: 'Mieter Engel',
+        content: this.state.imgDataUri
+      };
+      try {
+        const response = await axios({
+          method: 'post',
+          url: 'http://localhost:8000/mail/send',
+          data: newDocument,
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        });
+        if (response.data) {
+          console.log('items', response.data);
+        }
+      } catch (err) {
+        console.log('sending document error:' + err);
+      }
+    }else{
+      alert('please take a photo for the document you want to send...')
+    }
+    };
+    
   render() {
     const { imgDataUri, displayCamera } = this.state;
     return (
@@ -41,7 +66,7 @@ export default class DocumentUploader extends Component {
               onClick={this.toggleCamera}
               className="camera-btn mr-3 mb-3 ml-4"
             >
-              <i class="fas fa-camera text-white" />
+              <i className="fas fa-camera text-white" />
             </button>
             <button
               className="send-document-btn text-white  mb-3"
