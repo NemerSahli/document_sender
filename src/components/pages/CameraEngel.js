@@ -13,7 +13,7 @@ class CameraEngel extends Component {
 
   render() {
     return (
-      <div className="h-100">
+     
         <Camera
           onTakePhoto={dataUri => {
             this.onTakePhoto(dataUri);
@@ -24,7 +24,7 @@ class CameraEngel extends Component {
           isImageMirror={false}
           sizeFactor={1}
         />
-      </div>
+     
     );
   }
 }
