@@ -1,6 +1,6 @@
 var nodemailer = require('nodemailer');
 
-function sendMail(recipientAddress, subject, body, doc) {
+function sendMail(recipientAddress, subject, body) {
   var smtpConfig = {
     host: 'smtp.gmail.com',
     port: 465,
@@ -21,7 +21,8 @@ function sendMail(recipientAddress, subject, body, doc) {
     html: body,
     attachments: [
       {
-        filename: doc,
+        filename: 'output.pdf',
+        path: './output.pdf',
         contentType: 'application/pdf'
       }
     ]

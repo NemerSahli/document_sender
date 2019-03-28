@@ -13,18 +13,17 @@ class CameraEngel extends Component {
 
   render() {
     return (
-     
-        <Camera
-          onTakePhoto={dataUri => {
-            this.onTakePhoto(dataUri);
-          }}
-          idealFacingMode={FACING_MODES.ENVIRONMENT}
-          imageCompression={1}
-          isMaxResolution={false}
-          isImageMirror={false}
-          sizeFactor={1}
-        />
-     
+      <Camera
+        onTakePhoto={dataUri => {
+          this.onTakePhoto(dataUri);
+        }}
+        idealFacingMode={FACING_MODES.ENVIRONMENT}
+        imageCompression={1}
+        isMaxResolution={false}
+        isImageMirror={false}
+        sizeFactor={1}
+        isFullscreen={true}
+      />
     );
   }
 }

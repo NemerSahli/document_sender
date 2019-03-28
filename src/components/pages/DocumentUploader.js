@@ -23,8 +23,7 @@ export default class DocumentUploader extends Component {
   };
 
   sendDocument = async () => {
-    if(this.state.imgDataUri){
-
+    if (this.state.imgDataUri) {
       let newDocument = {
         userName: 'Mieter Engel',
         content: this.state.imgDataUri
@@ -44,11 +43,11 @@ export default class DocumentUploader extends Component {
       } catch (err) {
         console.log('sending document error:' + err);
       }
-    }else{
-      alert('please take a photo for the document you want to send...')
+    } else {
+      alert('please take a photo for the document you want to send...');
     }
-    };
-    
+  };
+
   render() {
     const { imgDataUri, displayCamera } = this.state;
     return (
