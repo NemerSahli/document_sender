@@ -2,29 +2,43 @@
   padding: 0px;
   margin: 0px;
 }
-.header {
-  height: 90px;
-  width: 100%;
-  background-color: #21868a;
+.document-uploader{
+  position: relative;
+  left:0px;
+  top:0px;
+  max-width: 500px;
+  margin: 0 auto;
+  max-height:800px;
 }
-.header-logo {
-  height: 35px;
-  margin-top: 35px;
-  margin-left: 20px;
+.controller{
+  position:fixed;
+  bottom: 0px;
+  left:0px;
+  z-index: 999;
+  background-color:white;
+  padding:10px;
+  width:100%;
 }
 
 .camera-btn {
-  width: 80px;
+  border-radius: 50%;
+  border: 5px solid red;
+}
+
+.send-document-btn{
+  border-radius: 10px;
+  border:none;
+  color: #21868A;
+  font-weight: bold;
 }
 .send-document-btn,
 .camera-btn {
-  background: #6b076b;
-  border: solid 1px gray;
-  padding: 5px;
-  border-radius: 5px;
+  background : none;
+  padding:3px;
+  
 }
 .camera-btn:hover,
 .send-document-btn:hover {
-  background: #800080;
+  background: rgb(231, 229, 229);
   cursor: pointer;
 }

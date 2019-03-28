@@ -17,17 +17,20 @@ router.post('/send', (req, res) => {
     return res.send({ error: 'data is required' });
   }
 
-  var doc = new PDFDocument({ margins: 50, padding: 50 });
+  var doc = new PDFDocument();
   doc.pipe(fs.createWriteStream('output.pdf'));
-  // PDF Creation logic goes here
-  doc.image(req.body.content, 20, 20, { width: 550, height: 550 });
-  // Add a 50 point margin on all sides
-
+  let newDate = new Date();
+  newDate = String(newDate);
+  doc.text(
+    'aktenzeichen: 645737 / Name: kunden / Date:' + newDate.slice(0, 23),
+    20,
+    10
+  );
+  doc.image(req.body.content, 20, 30, { width: 570, height: 700 });
   doc.end();
 
   let mailBody = `<h3>Mieter Engel</h3>
                   <p> KundenNummer: "user _id from database"</p> `;
-
   mailSender.sendMail('nemer.sahli@gmail.com', 'Contract document', mailBody);
 
   res.send({

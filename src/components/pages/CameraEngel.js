@@ -19,6 +19,7 @@ class CameraEngel extends Component {
         }}
         idealFacingMode={FACING_MODES.ENVIRONMENT}
         imageCompression={1}
+        idealResolution={{width: 595, height: 842}}
         isMaxResolution={false}
         isImageMirror={false}
         sizeFactor={1}

@@ -51,28 +51,41 @@ export default class DocumentUploader extends Component {
   render() {
     const { imgDataUri, displayCamera } = this.state;
     return (
-      <div className="row justify-content-center">
+      <div>
         {displayCamera ? (
           <CameraEngel onTakePhotoHandler={this.onTakePhoto} />
         ) : (
-          <div>
+          <div className="document-uploader">
             <ImagePreview
               imageSrcHandler={
-                imgDataUri ? imgDataUri : '/images/No_Image_Available.jpg'
+                imgDataUri ? imgDataUri : '/images/default-camera-image.png'
               }
             />
-            <button
-              onClick={this.toggleCamera}
-              className="camera-btn mr-3 mb-3 ml-4"
+            <div
+              className="controller
+             "
             >
-              <i className="fas fa-camera text-white" />
-            </button>
-            <button
-              className="send-document-btn text-white  mb-3"
-              onClick={this.sendDocument}
-            >
-              Senden Dokument
-            </button>
+              <div className="row justify-align-content-around">
+                <button
+                  className="col-4 send-document-btn text-dark fa-2x"
+                  onClick={this.sendDocument}
+                >
+                  Abbruch
+                </button>
+                <button
+                  onClick={this.toggleCamera}
+                  className=" col-4 camera-btn"
+                >
+                  <i className="fas fa-circle fa-3x text-danger" />
+                </button>
+                <button
+                  className="col-4 send-document-btn fa-2x"
+                  onClick={this.sendDocument}
+                >
+                  Fertig
+                </button>
+              </div>
+            </div>
           </div>
         )}
       </div>
