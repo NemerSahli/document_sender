@@ -72,12 +72,14 @@ export default class DocumentUploader extends Component {
                 >
                   Abbruch
                 </button>
-                <button
-                  onClick={this.toggleCamera}
-                  className=" col-4 camera-btn"
-                >
-                  <i className="fas fa-circle fa-3x text-danger" />
-                </button>
+                <div className="col-4 text-center">
+                  <button
+                    onClick={this.toggleCamera}
+                    className="camera-btn"
+                  >
+                    <i className="fas fa-circle fa-3x text-danger" />
+                  </button>
+                </div>
                 <button
                   className="col-4 send-document-btn fa-2x"
                   onClick={this.sendDocument}
