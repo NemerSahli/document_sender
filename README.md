@@ -1,6 +1,6 @@
-# MieterEngel coding challenge
+#coding challenge
 
-Welcome to the MieterEngel coding challenge! Your mission, should
+Welcome to the ... coding challenge! Your mission, should
 you accept it, is to build a page that our customers can use
 to take a picture of a page with their mobile phone and send the picture
 to us via email.
@@ -10,10 +10,9 @@ matter for the evaluation insofar as e. g. adding buggy external
 dependencies will also affect the stability of your code.
 
 ## The fronted
-A layout idea for the frontend can be found [here](https://marvelapp.com/project/3366817/).
-
+A layout idea for the frontend can be found.
 ## The backend
-The backend should send an email with the picture attached as a PDF to `coding-challenge@mieterengel.de`.
+The backend should send an email with the picture attached as a PDF to email destination.
 
 ## What we will look for
 
