@@ -1,4 +1,4 @@
-##Coding challenge
+## Coding challenge
 
 Welcome to the ... coding challenge! Your mission, should
 you accept it, is to build a page that our customers can use
