@@ -24,6 +24,10 @@ html {
   padding: 10px;
   width: 100%;
 }
+.controller-body {
+  max-width: 780px;
+  margin: 0 auto;
+}
 
 .fertig-btn {
   color: #21868a;
@@ -57,3 +61,6 @@ html {
     margin-top: 5px;
   }
 }
+
+/* ************ */
+/* loading css*/

@@ -1,6 +1,6 @@
 var nodemailer = require('nodemailer');
-
-function sendMail(recipientAddress, subject, body) {
+const fs = require('fs');
+function sendMail(recipientAddress, subject, body, res) {
   var smtpConfig = {
     host: 'smtp.gmail.com',
     port: 465,
@@ -21,14 +21,25 @@ function sendMail(recipientAddress, subject, body) {
     html: body,
     attachments: [
       {
-        filename: 'output.pdf',
-        path: './output.pdf',
+        filename: 'document.pdf',
+        path: './document.pdf',
         contentType: 'application/pdf'
       }
     ]
   };
-  transporter.sendMail(mailOptions, function(err, info) {
-    if (err) console.log('mail was not delivered');
+
+  transporter.sendMail(mailOptions, (err, info) => {
+    if (err)
+      res.send({
+        error: 1002,
+        message: 'Error: not able to send your email!'
+      });
+    fs.unlink('./document.pdf', () => {
+      res.send({
+        error: 0,
+        message: 'Your document has been sent! Thank you!'
+      });
+    });
   });
 }
 module.exports.sendMail = sendMail;
