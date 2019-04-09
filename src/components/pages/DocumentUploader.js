@@ -75,10 +75,9 @@ export default class DocumentUploader extends Component {
   };
 
   render() {
-    const { imgDataUri, displayCamera } = this.state;
     return (
       <div>
-        {displayCamera ? (
+        {this.state.displayCamera ? (
           <CameraEngel onTakePhotoHandler={this.onTakePhoto} />
         ) : (
           <div>
