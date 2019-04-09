@@ -1,0 +1,5 @@
+{
+  "backend": "http://localhost:8000",
+  "host": "http://localhost:3000",
+  "mode": "development"
+}
