@@ -2,11 +2,12 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const mail = require('./routes/mail');
+const config = require('../../src/config.json');
 const app = express();
 
 // cors configurations
 const corsOptions = {
-  origin: 'http://localhost:3000',
+  origin: config.host,
   optionsSuccessStatus: 200
   // credentials: true
 };

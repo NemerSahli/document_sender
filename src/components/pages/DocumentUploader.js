@@ -34,7 +34,7 @@ export default class DocumentUploader extends Component {
       try {
         const response = await axios({
           method: 'post',
-          url: 'http://localhost:8000/mail/send',
+          url: window.MieterBackend + '/mail/send',
           data: newDocument,
           headers: {
             'Content-Type': 'application/json'

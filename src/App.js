@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import DocumentUploader from './components/pages/DocumentUploader';
+import config from './config.json'
 
 class App extends Component {
   constructor(props) {
