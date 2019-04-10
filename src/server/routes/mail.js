@@ -22,6 +22,7 @@ router.post('/send', (req, res) => {
   );
   doc.image(req.body.content, 20, 30, { width: 570, height: 700 });
   doc.end();
+  //shouldn't continue untill be sure the file created, mentioned to use async await
 
   if (!fs.existsSync('document.pdf')) {
     res.send({
