@@ -31,7 +31,7 @@ function sendMail(recipientAddress, subject, body, res) {
   transporter.sendMail(mailOptions, (err, info) => {
     if (err)
       res.send({
-        error: 1002,
+        error: 500,
         message: 'Error: not able to send your email!'
       });
     fs.unlink('./document.pdf', () => {

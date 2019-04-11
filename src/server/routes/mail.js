@@ -8,7 +8,7 @@ const fs = require('fs');
 
 router.post('/send', (req, res) => {
   if (!req.body || !req.body.content) {
-    return res.send({ error: 1000, message: 'Document is required!' });
+    return res.send({ error: 204, message: 'Document is required!' });
   }
 
   var doc = new PDFDocument();
@@ -26,11 +26,9 @@ router.post('/send', (req, res) => {
 
   if (!fs.existsSync('document.pdf')) {
     res.send({
-      error: 1001,
+      error: 500,
       message: 'Error: not able to create PDF document!'
     });
-  } else {
-    console.log('file exist');
   }
 
   let mailBody = `<h3>Mieter Engel</h3>
