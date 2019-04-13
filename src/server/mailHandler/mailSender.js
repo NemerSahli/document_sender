@@ -1,6 +1,6 @@
 var nodemailer = require('nodemailer');
 const fs = require('fs');
-function sendMail(recipientAddress, subject, body, res) {
+function sendMail(recipientAddress, subject, body, pdfFileName, res) {
   var smtpConfig = {
     host: 'smtp.gmail.com',
     port: 465,
@@ -21,8 +21,8 @@ function sendMail(recipientAddress, subject, body, res) {
     html: body,
     attachments: [
       {
-        filename: 'document.pdf',
-        path: './document.pdf',
+        filename: pdfFileName + '.pdf',
+        path: './' + pdfFileName + '.pdf',
         contentType: 'application/pdf'
       }
     ]
@@ -34,7 +34,7 @@ function sendMail(recipientAddress, subject, body, res) {
         error: 500,
         message: 'Error: not able to send your email!'
       });
-    fs.unlink('./document.pdf', () => {
+    fs.unlink('./' + pdfFileName + '.pdf', () => {
       res.send({
         error: 0,
         message: 'Your document has been sent! Thank you!'

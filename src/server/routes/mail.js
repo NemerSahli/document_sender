@@ -10,9 +10,10 @@ router.post('/send', (req, res) => {
   if (!req.body || !req.body.content) {
     return res.send({ error: 204, message: 'Document is required!' });
   }
+  let pdfFileName = randomstring.generate(10);
 
   var doc = new PDFDocument();
-  let stream = fs.createWriteStream('document.pdf');
+  let stream = fs.createWriteStream(pdfFileName + '.pdf');
   doc.pipe(stream);
   let newDate = new Date();
   newDate = String(newDate);
@@ -25,8 +26,8 @@ router.post('/send', (req, res) => {
   doc.image(req.body.content, 20, 30, { width: 570, height: 700 });
   doc.end();
 
-  stream.on('finish', function() {
-    if (!fs.existsSync('document.pdf')) {
+  stream.on('finish', () => {
+    if (!fs.existsSync(pdfFileName + '.pdf')) {
       res.send({
         error: 500,
         message: 'Error: not able to create PDF document!'
@@ -39,6 +40,7 @@ router.post('/send', (req, res) => {
       'nemer.sahli@gmail.com',
       'Contract document',
       mailBody,
+      pdfFileName,
       res
     );
   });
