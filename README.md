@@ -1,4 +1,7 @@
-# Document Sender
+<div align="center">
+  <h1>Document Sender</h1>
+</div>
+
 
 - `npm install`
 - `npm start`
