@@ -37,7 +37,7 @@ router.post('/send', (req, res) => {
     let mailBody = `<h3>Mieter Engel</h3>
                     <p> KundenNummer: "user _id from database"</p> `;
     mailSender.sendMail(
-      'nemer.sahli@gmail.com',
+      'example@domain.com',
       'Contract document',
       mailBody,
       pdfFileName,
