@@ -6,15 +6,15 @@ function sendMail(recipientAddress, subject, body, pdfFileName, res) {
     port: 465,
     secure: true,
     auth: {
-      user: 'mieter.engel24@gmail.com',
-      pass: 'Engel2019'
+      user: 'example@your-domain.com',
+      pass: 'your_password'
     }
   };
 
   var transporter = nodemailer.createTransport(smtpConfig);
 
   var mailOptions = {
-    from: ' "Mieter Engel" <mieter.engel24@gmail.com>',
+    from: ' "Sender" <example@your-domain.com>',
     to: recipientAddress,
     subject: subject,
     text: 'Hello World',
